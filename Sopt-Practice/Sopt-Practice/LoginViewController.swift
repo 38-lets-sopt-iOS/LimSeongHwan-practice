@@ -1,0 +1,86 @@
+//
+//  LoginViewController.swift
+//  Sopt-Practice
+//
+//  Created by 성환 on 4/9/26.
+//
+
+import UIKit
+
+class LoginViewController: UIViewController {
+    
+    let titleLabel: UILabel = {
+        let label = UILabel(frame: CGRect(x: 76, y: 169, width: 236, height: 44))
+        label.text = "동네라서 가능한 모든 것\n당근에서 가까운 이웃과 함께해요."
+        label.font = .boldSystemFont(ofSize: 16)
+        label.numberOfLines = 2
+        label.textAlignment = .center
+        return label
+    }()
+    
+    let loginTextField: UITextField = {
+        let textField = UITextField(frame: CGRect(x: 20, y: 276, width: 335, height: 52))
+        textField.placeholder = "아이디"
+        textField.backgroundColor = UIColor(red: 221/255, green: 222/255, blue: 227/225, alpha: 1)
+        textField.font = .boldSystemFont(ofSize: 14)
+        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 23, height: 0))
+        textField.leftViewMode = .always
+        return textField
+    }()
+    
+    let passwordTextField: UITextField = {
+        let textField = UITextField(frame: CGRect(x: 20, y: 335, width:335, height: 52))
+        textField.placeholder = "비밀번호"
+        textField.backgroundColor = UIColor(red: 221/255, green: 222/255, blue: 227/225, alpha: 1)
+        textField.font = .boldSystemFont(ofSize: 14)
+        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 23, height: 0))
+        textField.leftViewMode = .always
+        return textField
+    }()
+    
+    lazy var loginButton: UIButton = {
+        let button = UIButton(frame: CGRect(x: 20, y: 515, width: 335, height: 57))
+        button.setTitle("로그인하기", for: .normal)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 18)
+        button.titleLabel?.textAlignment = .center
+        button.backgroundColor = .orange
+        button.titleLabel?.textColor = .white
+        button.layer.cornerRadius = 6
+        
+        button.addTarget(self, action: #selector(loginButtonDidTap), for: .touchUpInside)
+        
+        return button
+    }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+        setUI()
+    }
+    
+    func setUI() {
+        view.addSubview(titleLabel)
+        view.addSubview(loginTextField)
+        view.addSubview(passwordTextField)
+        view.addSubview(loginButton)
+    }
+    
+    @objc
+    func loginButtonDidTap() {
+        //presentToWelcomeVC()
+        navigateToWelcomeVC()
+    }
+    
+    func presentToWelcomeVC() {
+        let welcomeViewController = WelcomeViewController()
+        welcomeViewController.modalPresentationStyle = .formSheet
+        self.present(welcomeViewController, animated: true)
+    }
+    
+    func navigateToWelcomeVC() {
+        let welcomeViewController = WelcomeViewController()
+        //        welcomeViewController.id = loginTextField.text
+        welcomeViewController.configure(id: loginTextField.text)
+        self.navigationController?.pushViewController(welcomeViewController, animated: true)
+    }
+}
