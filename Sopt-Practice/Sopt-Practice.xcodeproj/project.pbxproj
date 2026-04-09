@@ -11,7 +11,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		CA74A5A32F8790010073C9AA /* Exceptions for "Sopt-Practice" folder in "Sopt-Practice" target */ = {
+		CA74A60C2F87CA080073C9AA /* Exceptions for "Sopt-Practice" folder in "Sopt-Practice" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -21,10 +21,10 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		CA74A5932F8790000073C9AA /* Sopt-Practice */ = {
+		CA74A5FB2F87CA070073C9AA /* Sopt-Practice */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				CA74A5A32F8790010073C9AA /* Exceptions for "Sopt-Practice" folder in "Sopt-Practice" target */,
+				CA74A60C2F87CA080073C9AA /* Exceptions for "Sopt-Practice" folder in "Sopt-Practice" target */,
 			);
 			path = "Sopt-Practice";
 			sourceTree = "<group>";
@@ -45,7 +45,7 @@
 		CA74A5882F8790000073C9AA = {
 			isa = PBXGroup;
 			children = (
-				CA74A5932F8790000073C9AA /* Sopt-Practice */,
+				CA74A5FB2F87CA070073C9AA /* Sopt-Practice */,
 				CA74A5922F8790000073C9AA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -74,7 +74,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				CA74A5932F8790000073C9AA /* Sopt-Practice */,
+				CA74A5FB2F87CA070073C9AA /* Sopt-Practice */,
 			);
 			name = "Sopt-Practice";
 			packageProductDependencies = (
