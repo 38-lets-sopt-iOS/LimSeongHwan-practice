@@ -13,6 +13,8 @@ class WelcomeViewController: UIViewController {
     let welcomeImage: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: 112, y: 87, width: 150, height: 150))
         imageView.image = UIImage(named: "welcome")
+        imageView.layer.cornerRadius = 100
+        imageView.clipsToBounds = true
         
         return imageView
     }()
@@ -35,6 +37,9 @@ class WelcomeViewController: UIViewController {
         button.titleLabel?.font = .subHead1
         button.titleLabel?.textAlignment = .center
         button.layer.cornerRadius = 6
+        button.clipsToBounds = true
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOpacity = 0.2
         
         return button
     }()
@@ -47,6 +52,9 @@ class WelcomeViewController: UIViewController {
         button.titleLabel?.font = .subHead1
         button.titleLabel?.textAlignment = .center
         button.layer.cornerRadius = 6
+        button.clipsToBounds = true
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOpacity = 0.2
         
         button.addTarget(self, action: #selector(backToLoginButtonDidTap), for: .touchUpInside)
         
