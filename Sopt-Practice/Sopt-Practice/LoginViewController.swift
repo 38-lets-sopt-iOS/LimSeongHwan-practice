@@ -25,6 +25,8 @@ class LoginViewController: UIViewController {
         textField.font = .subHead4
         textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 23, height: 0))
         textField.leftViewMode = .always
+        textField.keyboardType = .emailAddress
+        textField.returnKeyType = .next
         return textField
     }()
     
@@ -35,9 +37,27 @@ class LoginViewController: UIViewController {
         textField.font = .subHead4
         textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 23, height: 0))
         textField.leftViewMode = .always
+        textField.returnKeyType = .done
+        textField.isSecureTextEntry = true
         return textField
     }()
     
+    let autoLoginLabel: UILabel = {
+        let label = UILabel(frame: CGRect(x: 20, y: 408, width: 100, height: 31))
+        label.text = "자동 로그인"
+        label.font = .subHead4
+        label.textColor = .gray
+        return label
+    }()
+
+    let autoLoginSwitch: UISwitch = {
+        let toggle = UISwitch(frame: CGRect(x: 284, y: 405, width: 51, height: 31))
+        toggle.isOn = false
+        toggle.onTintColor = .orange
+        toggle.thumbTintColor = .white
+        return toggle
+    }()
+
     lazy var loginButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 20, y: 515, width: 335, height: 57))
         button.setTitle("로그인하기", for: .normal)
@@ -46,6 +66,9 @@ class LoginViewController: UIViewController {
         button.backgroundColor = .orange
         button.titleLabel?.textColor = .white
         button.layer.cornerRadius = 6
+        button.clipsToBounds = true
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOpacity = 0.8
         
         button.addTarget(self, action: #selector(loginButtonDidTap), for: .touchUpInside)
         
@@ -62,6 +85,8 @@ class LoginViewController: UIViewController {
         view.addSubview(titleLabel)
         view.addSubview(loginTextField)
         view.addSubview(passwordTextField)
+        view.addSubview(autoLoginLabel)
+        view.addSubview(autoLoginSwitch)
         view.addSubview(loginButton)
     }
     
