@@ -8,7 +8,6 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-    
     let titleLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 76, y: 169, width: 236, height: 44))
         label.text = "동네라서 가능한 모든 것\n당근에서 가까운 이웃과 함께해요."
@@ -31,7 +30,7 @@ class LoginViewController: UIViewController {
     }()
     
     let passwordTextField: UITextField = {
-        let textField = UITextField(frame: CGRect(x: 20, y: 335, width:335, height: 52))
+        let textField = UITextField(frame: CGRect(x: 20, y: 335, width: 335, height: 52))
         textField.placeholder = "비밀번호"
         textField.backgroundColor = UIColor(red: 221/255, green: 222/255, blue: 227/225, alpha: 1)
         textField.font = .subHead4
@@ -82,29 +81,25 @@ class LoginViewController: UIViewController {
     }
     
     func setUI() {
-        view.addSubview(titleLabel)
-        view.addSubview(loginTextField)
-        view.addSubview(passwordTextField)
-        view.addSubview(autoLoginLabel)
-        view.addSubview(autoLoginSwitch)
-        view.addSubview(loginButton)
+        view.addSubviews(titleLabel, loginTextField, passwordTextField, autoLoginLabel, autoLoginSwitch, loginButton)
     }
     
     @objc
     func loginButtonDidTap() {
-        //presentToWelcomeVC()
+        // presentToWelcomeVC()
         navigateToWelcomeVC()
     }
     
     func presentToWelcomeVC() {
         let welcomeViewController = WelcomeViewController()
         welcomeViewController.modalPresentationStyle = .formSheet
-        self.present(welcomeViewController, animated: true)
+        present(welcomeViewController, animated: true)
     }
     
     func navigateToWelcomeVC() {
         let welcomeViewController = WelcomeViewController()
 //        welcomeViewController.id = loginTextField.text
         welcomeViewController.configure(id: loginTextField.text)
-        self.navigationController?.pushViewController(welcomeViewController, animated: true)
-    }}
+        navigationController?.pushViewController(welcomeViewController, animated: true)
+    }
+}

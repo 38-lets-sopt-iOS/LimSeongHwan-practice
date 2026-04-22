@@ -56,24 +56,20 @@ class WelcomeViewController: UIViewController {
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOpacity = 0.2
         
-        button.addTarget(self, action: #selector(backToLoginButtonDidTap), for: .touchUpInside)
+        button.addTarget(self, action: #selector(self.backToLoginButtonDidTap), for: .touchUpInside)
         
         return button
     }()
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        setView()
+        self.setView()
 //        bindId()
     }
     
     func setView() {
-        view.addSubview(welcomeImage)
-        view.addSubview(welcomeText)
-        view.addSubview(toMainButton)
-        view.addSubview(tologinButton)
+        view.addSubviews(welcomeImage, welcomeText, toMainButton, tologinButton)
     }
     
     @objc
@@ -91,6 +87,6 @@ class WelcomeViewController: UIViewController {
     
     func configure(id: String?) {
         self.id = id
-        welcomeText.text = "\(id ?? "")님\n반가워요!"
+        self.welcomeText.text = "\(id ?? "")님\n반가워요!"
     }
 }
