@@ -22,8 +22,7 @@ class LoginViewController: UIViewController {
         textField.placeholder = "아이디"
         textField.backgroundColor = .gray200
         textField.font = .subHead4
-        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 23, height: 0))
-        textField.leftViewMode = .always
+        textField.setLeftPadding(23)
         textField.keyboardType = .emailAddress
         textField.returnKeyType = .next
         return textField
@@ -34,8 +33,7 @@ class LoginViewController: UIViewController {
         textField.placeholder = "비밀번호"
         textField.backgroundColor = .gray200
         textField.font = .subHead4
-        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 23, height: 0))
-        textField.leftViewMode = .always
+        textField.setLeftPadding(23)
         textField.returnKeyType = .done
         textField.isSecureTextEntry = true
         return textField
