@@ -20,7 +20,7 @@ class LoginViewController: UIViewController {
     let loginTextField: UITextField = {
         let textField = UITextField(frame: CGRect(x: 20, y: 276, width: 335, height: 52))
         textField.placeholder = "아이디"
-        textField.backgroundColor = UIColor(red: 221/255, green: 222/255, blue: 227/225, alpha: 1)
+        textField.backgroundColor = .gray200
         textField.font = .subHead4
         textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 23, height: 0))
         textField.leftViewMode = .always
@@ -32,7 +32,7 @@ class LoginViewController: UIViewController {
     let passwordTextField: UITextField = {
         let textField = UITextField(frame: CGRect(x: 20, y: 335, width: 335, height: 52))
         textField.placeholder = "비밀번호"
-        textField.backgroundColor = UIColor(red: 221/255, green: 222/255, blue: 227/225, alpha: 1)
+        textField.backgroundColor = .gray200
         textField.font = .subHead4
         textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 23, height: 0))
         textField.leftViewMode = .always
@@ -52,7 +52,7 @@ class LoginViewController: UIViewController {
     let autoLoginSwitch: UISwitch = {
         let toggle = UISwitch(frame: CGRect(x: 284, y: 405, width: 51, height: 31))
         toggle.isOn = false
-        toggle.onTintColor = .orange
+        toggle.onTintColor = .primaryOrange
         toggle.thumbTintColor = .white
         return toggle
     }()
@@ -62,7 +62,7 @@ class LoginViewController: UIViewController {
         button.setTitle("로그인하기", for: .normal)
         button.titleLabel?.font = .subHead1
         button.titleLabel?.textAlignment = .center
-        button.backgroundColor = .orange
+        button.backgroundColor = .primaryOrange
         button.titleLabel?.textColor = .white
         button.layer.cornerRadius = 6
         button.clipsToBounds = true

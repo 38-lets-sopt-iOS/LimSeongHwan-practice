@@ -32,8 +32,8 @@ class WelcomeViewController: UIViewController {
     let toMainButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 20, y: 426, width: 335, height: 57))
         button.setTitle("메인으로", for: .normal)
-        button.backgroundColor = .orange
-        button.titleLabel?.textColor = .white
+        button.backgroundColor = .primaryOrange
+        button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = .subHead1
         button.titleLabel?.textAlignment = .center
         button.layer.cornerRadius = 6
@@ -47,8 +47,8 @@ class WelcomeViewController: UIViewController {
     lazy var tologinButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 20, y: 498, width: 335, height: 57))
         button.setTitle("다시 로그인", for: .normal)
-        button.backgroundColor = UIColor(red: 221/255, green: 222/255, blue: 227/255, alpha: 1)
-        button.titleLabel?.textColor = UIColor(red: 172/255, green: 176/255, blue: 185/255, alpha: 1)
+        button.backgroundColor = .gray200
+        button.setTitleColor(.gray300, for: .normal)
         button.titleLabel?.font = .subHead1
         button.titleLabel?.textAlignment = .center
         button.layer.cornerRadius = 6
