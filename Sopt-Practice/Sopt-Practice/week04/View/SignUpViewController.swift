@@ -42,7 +42,7 @@ final class SignupViewController: UIViewController {
         }
         signupButton.addTarget(self, action: #selector(signupButtonDidTap), for: .touchUpInside)
         loginButton.addTarget(self, action: #selector(loginButtonDidTap), for: .touchUpInside)
-//        getUsersButton.addTarget(self, action: #selector(getUsersButtonDidTap), for: .touchUpInside)
+        getUsersButton.addTarget(self, action: #selector(getUsersButtonDidTap), for: .touchUpInside)
     }
     
     private func setUI() {
@@ -190,9 +190,9 @@ extension SignupViewController {
     private func loginButtonDidTap() {
         navigationController?.pushViewController(LoginAPIViewController(), animated: true)
     }
-//    
-//    @objc
-//    private func getUsersButtonDidTap() {
-//        navigationController?.pushViewController(GetUsersListViewController_Custom(), animated: true)
-//    }
+    
+    @objc
+    private func getUsersButtonDidTap() {
+        navigationController?.pushViewController(GetUsersListViewController(), animated: true)
+    }
 }
