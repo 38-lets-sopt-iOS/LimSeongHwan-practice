@@ -77,6 +77,15 @@ class MyInfoViewController: BaseUIViewController {
         }
     }
 
+    // MARK: - setAction
+    
+    override func setAction() {
+        [nameTextField, emailTextField, ageTextField].forEach {
+            $0.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        }
+        modifyButton.addTarget(self, action: #selector(modifyButtonDidTap), for: .touchUpInside)
+    }
+
 }
 
 // MARK: - extension
@@ -125,6 +134,19 @@ extension MyInfoViewController {
     
     @objc
     private func modifyButtonDidTap() {
-        
+        Task {
+            do {
+                _ = try await ModifyInfoService.shared.patchMyInfo(name: name, email: email, age: age)
+                let alert = UIAlertController(title: "수정 완료", message: nil, preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "확인", style: .default)
+                alert.addAction(okAction)
+                self.present(alert, animated: true)
+            } catch {
+                let alert = UIAlertController(title: "개인정보 수정 실패", message: error.localizedDescription, preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "확인", style: .default)
+                alert.addAction(okAction)
+                self.present(alert, animated: true)
+            }
+        }
     }
 }
