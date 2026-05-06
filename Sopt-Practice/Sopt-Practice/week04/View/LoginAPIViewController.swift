@@ -31,7 +31,7 @@ class LoginAPIViewController: BaseUIViewController {
         $0.autocapitalizationType = .none
         $0.autocorrectionType = .no
         $0.spellCheckingType = .no
-        $0.textContentType = .password
+        $0.isSecureTextEntry = true
     }
     
     private let loginButton = UIButton().then {

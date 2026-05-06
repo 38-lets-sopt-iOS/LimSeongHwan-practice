@@ -12,7 +12,7 @@ struct LoginResponseDTO: Decodable {
     let status: Int
     let message: String
     let code: String
-    let data: UserData
+    let data: LoginUserData?
     let meta: ErrorResponseDTO?
 }
 
