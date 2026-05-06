@@ -31,6 +31,7 @@ class LoginAPIViewController: BaseUIViewController {
         $0.autocapitalizationType = .none
         $0.autocorrectionType = .no
         $0.spellCheckingType = .no
+        $0.textContentType = .password
     }
     
     private let loginButton = UIButton().then {
@@ -49,7 +50,7 @@ class LoginAPIViewController: BaseUIViewController {
     
     override func setLayout() {
         idTextField.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(70)
+            $0.top.equalTo(view.safeAreaLayoutGuide).inset(70)
             $0.horizontalEdges.equalToSuperview().inset(20)
             $0.height.equalTo(50)
         }
