@@ -24,19 +24,21 @@ final class LoginService {
     }
     
     private func makeRequest(body: Data?) throws -> URLRequest {
-        guard let baseURL = Bundle.main.infoDictionary?["BaseURL"] as? String else {
+        guard let baseURL = Bundle.main.infoDictionary?["BASE_URL"] as? String else {
             throw NetworkError.urlError
         }
         
         let baseUrl = baseURL
-        let path = "/api/v1/auth/signin"
+        print(baseUrl)
+        let path = "api/v1/auth/signin"
         let url = baseUrl + path
+        print(url)
         
-        guard let encodeurl = URL(string: url) else {
+        guard let encodedurl = URL(string: url) else {
             throw NetworkError.urlError
         }
         
-        var request = URLRequest(url: encodeurl)
+        var request = URLRequest(url: encodedurl)
         request.httpMethod = "POST"
         
         let header = ["Content-Type": "application/json"]
@@ -64,9 +66,13 @@ final class LoginService {
         
         let (data, response) = try await URLSession.shared.data(for: request)
         
+        dump("Request \(request)")
+        
         guard let httpResponse = response as? HTTPURLResponse else {
             throw NetworkError.responseError
         }
+        
+        dump("Response \(response)")
         
         guard(200...299).contains(httpResponse.statusCode) else {
             throw configureHTTPError(errorCode: httpResponse.statusCode)

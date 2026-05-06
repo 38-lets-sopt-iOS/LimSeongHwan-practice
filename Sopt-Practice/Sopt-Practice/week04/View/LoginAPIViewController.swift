@@ -70,6 +70,8 @@ class LoginAPIViewController: BaseUIViewController {
     
     override func setAction() {
         loginButton.addTarget(self, action: #selector(loginButtonDidTap), for: .touchUpInside)
+        idTextField.addTarget(self, action: #selector(textFieldDidEditingChanged), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textFieldDidEditingChanged), for: .editingChanged)
     }
 }
 
@@ -92,7 +94,9 @@ extension LoginAPIViewController {
     private func loginButtonDidTap() {
         Task {
             do {
-                let _ = try await LoginService.shared.postLogin(loginId: id, password: password)
+                let response = try await LoginService.shared.postLogin(loginId: id, password: password)
+                UserManager.shared.userId = response.data?.userId
+                self.navigationController?.pushViewController(MyInfoViewController(), animated: true)
             } catch {
                 let alert = UIAlertController(title: "로그인 실패", message: error.localizedDescription, preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "확인", style: .default)
