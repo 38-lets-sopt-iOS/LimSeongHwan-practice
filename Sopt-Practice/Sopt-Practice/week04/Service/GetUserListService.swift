@@ -29,7 +29,7 @@ final class GetUserListService {
         
         request.httpMethod = "GET"
         
-        let header = ["Content-Type" : "applicagtion/json"]
+        let header = ["Content-Type" : "application/json"]
         header.forEach {
             request.addValue($0.value, forHTTPHeaderField: $0.key)
         }
